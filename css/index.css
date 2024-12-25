@@ -1,0 +1,138 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Siemreap', sans-serif;
+    font-size: 1.1rem;
+}
+.container-fluid{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mainBg-login{
+    z-index: 1;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+.container{
+    position: absolute;
+    display: flex;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 2;
+    width: 700px;
+    height: 400px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+.container .logo-mainlog{
+   width: 45%;
+   height: 100%;
+   overflow: hidden;
+   color: rgb(255, 255, 255);
+}
+.logo-mainlog > .img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 90px 0px 15px 0px;
+}
+.logo-mainlog > .img img{
+    width: 140px;
+    height: auto;
+}
+.logo-mainlog p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-family: "Moul", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #0404B4;
+}
+.container > form{
+    position: relative;
+    width: 55%;
+    height: 100%;
+    background-color: #4B088A;
+    padding: 65px 20px 20px 20px;
+    font-family: "Kantumruy Pro", serif;
+}
+.container form .name-pg{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    font-family: "Kantumruy Pro", serif;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #2E64FE;
+}
+.container form .p1{
+    font-family: "Kantumruy Pro", serif;
+    color: #ffffff;
+    margin: 0px;
+    font-size: 1.5rem;
+    font-weight: 650;
+}
+.container form .p2{
+    color: #ffffff;
+    font-family: "Kantumruy Pro", serif;
+    font-size: 0.9rem;
+}
+.container form .p2 > a{
+    color: #ffffff;
+    font-family: "Kantumruy Pro", serif;
+    font-size: 0.9rem;
+}
+.container form input[type="email"], input[type="text"]{
+    font-family: "Kantumruy Pro", serif;
+    font-size: 1rem;
+    padding: 0px 10px 0px 10px;
+    height: 37px;
+}
+.container .form-control:focus{
+    outline: none !important;
+    box-shadow: none !important;
+}
+.container form .form-check label{
+    font-family: "Kantumruy Pro", serif;
+    font-size: 0.9rem;
+    color: #ffffff;
+}
+.container form .form-check input{
+    width: 15px;
+    height: 15px;
+    margin-top: 8px;
+}
+.container form button{
+    font-family: "Kantumruy Pro", serif;
+    font-size: 1rem;
+    width: 100%;
+    padding: 4px;
+}
+.container form .fg-pass{
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    width: 100%;
+    
+}
+form .fg-pass a{
+    font-family: "Kantumruy Pro", serif;
+    font-size: 0.9rem;
+    color: #ffffff;
+}

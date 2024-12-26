@@ -1,0 +1,123 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Kantumruy Pro", "Mona Sans", serif;
+    font-size: 1rem;
+}
+.container-fluid{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+/* menu */
+.menu-side{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 53px;
+    height: 100vh;
+    background-color: #2E64FE;
+    padding: 5px 10px 0px 10px;
+    margin: 0;
+    overflow: hidden;
+    transition: all 0.5s;
+}
+.menu-side .profile-logo{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    text-align: center;
+    width: 200px;
+    height: 30px;
+    margin: 20px 0px 20px 0px;
+    
+}
+.menu-side .profile-logo p{
+    font-size: 0.95rem;
+    margin: 5px 0px 0px 5px;
+    color: #ffff;
+    font-family: Anton ,serif;
+}
+.menu-side .profile-logo .sru img{
+    width: 33px;
+    height: 100%;
+    margin-right: 5px;
+    cursor: pointer;
+}
+.menu-side .toggle-menu input{
+    display: none;
+}
+.menu-side nav {
+    width: 200px;
+}
+.menu-side nav ul li{
+    list-style: none;
+    margin: 15px 0px 10px 0px;
+    border-radius: 3px;
+    transition: all 0.5s;
+}
+/* .menu-side nav ul li:hover{
+    background-color: #4B088A;
+} */
+.menu-side nav ul li a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    height: 33px;
+    color: #ffff;
+    font-size: 1rem;
+}
+.menu-side nav ul li a > i{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 33px;
+    height: 33px;
+    font-size: 1.2rem;
+    border-radius: 3px;
+    margin-right: 10px;
+    transition: all .5s;
+}
+.menu-side nav ul li a > i:hover{
+    background-color: #decdee58;
+}
+.menu-side nav ul li:first-child a i{
+    background-color: #decdee58;
+}
+.menu-side .btnlogout{
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    text-align: center;
+    width: 200px;
+    height: 33px;
+    border-radius: 3px;
+    /* background-color: aliceblue; */
+    color: #ffff;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.menu-side .btnlogout i{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 33px;
+    height: 33px;
+    background-color: #decdee58;
+    border-radius: 3px;
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+/* .menu-side .btnlogout:hover{
+    background-color: #4B088A;
+} */
+/* end menu */

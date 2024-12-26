@@ -81,7 +81,7 @@
 .container form .p1{
     font-family: "Kantumruy Pro", serif;
     color: #ffffff;
-    margin: 0px;
+    margin: 0px 0px 10px 0px;
     font-size: 1.5rem;
     font-weight: 650;
 }
@@ -89,6 +89,7 @@
     color: #ffffff;
     font-family: "Kantumruy Pro", serif;
     font-size: 0.9rem;
+    margin: 7px 0px 0px 0px;
 }
 .container form .p2 > a{
     color: #ffffff;
@@ -105,6 +106,13 @@
     outline: none !important;
     box-shadow: none !important;
 }
+.container form .form-check{
+    display: flex;
+    margin: 10px 0px 10px 0px;
+}
+.container form .form-check .shpass{
+    width: 50%;
+}
 .container form .form-check label{
     font-family: "Kantumruy Pro", serif;
     font-size: 0.9rem;
@@ -113,7 +121,7 @@
 .container form .form-check input{
     width: 15px;
     height: 15px;
-    margin-top: 8px;
+    margin-top: 5px;
 }
 .container form button{
     font-family: "Kantumruy Pro", serif;

@@ -14,7 +14,7 @@ $(document).ready(function(){
                 $(this).css("background-color", "#ffffff00"); 
             });
         } else {
-            $(".menu-side").css("width","53px"); // Show the menu
+            $(".menu-side").css("width","55px"); // Show the menu
             $(".menu-side nav ul li").hover(function(){
                 $(this).css("background-color","#ffffff00");
             })

@@ -32,7 +32,7 @@
     justify-content: start;
     align-items: start;
     text-align: start;
-    width: 180px;
+    width: 200px;
     height: 30px;
     margin: 20px 0px 20px 0px;
     
@@ -53,7 +53,7 @@
     display: none;
 }
 .menu-side nav {
-    width: 165px;
+    width: 200px;
 }
 .menu-side nav ul li{
     list-style: none;
@@ -97,7 +97,7 @@
     justify-content: start;
     align-items: center;
     text-align: center;
-    width: 165px;
+    width: 200px;
     height: 33px;
     border-radius: 3px;
     /* background-color: aliceblue; */

@@ -11,6 +11,6 @@ $(document).ready(function(){
         }
     });
     $('form .btnLogin').on('click', function() {
-        window.open('http://127.0.0.1:5500/dashboard.html', '_parent'); // Replace with your URL
+        window.open('dashboard.html', '_parent'); // Replace with your URL
     });
 })

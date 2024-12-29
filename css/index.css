@@ -194,3 +194,13 @@ form .fg-pass a{
     }
     
 } */
+.container form .email, .pass{
+    position: relative;
+}
+.container form .fb-pass, .fb-email{
+    display: none;
+    position: absolute;
+    font-size: 0.8rem;
+    right: 0;
+    color: #ff7070;
+}

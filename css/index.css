@@ -145,10 +145,16 @@ form .fg-pass a{
 }
 @media screen and (max-width: 580px) {
     .container{
-        width: 95%;
+        width: 350px;
+    }
+    .container .logo-mainlog{
+        display: none;
+    }
+    .container form{
+        width: 100%;
     }
 }
-@media screen and (max-width: 540px){
+/* @media screen and (max-width: 540px){
     .container .logo-mainlog .img img{
         width: 120px;
     }
@@ -187,4 +193,4 @@ form .fg-pass a{
         margin-left: -30px;
     }
     
-}
+} */

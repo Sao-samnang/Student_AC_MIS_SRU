@@ -1,50 +1,27 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html>
+<head>
+<title>Email Validation</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+  $("#email").on("input", function() {
+    var email = $(this).val();
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email validation pattern
 
-    <!-- Option 1: CoreUI for Bootstrap CSS -->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/@coreui/coreui@5.2.0/dist/css/coreui.min.css" rel="stylesheet" integrity="sha384-u3h5SFn5baVOWbh8UkOrAaLXttgSF0vXI15ODtCSxl0v/VKivnCN6iHCcvlyTL7L" crossorigin="anonymous"> -->
+    if (emailRegex.test(email)) {
+      $("#email-feedback").text(""); // Clear any previous error messages
+    } else {
+      $("#email-feedback").text("Please enter a valid email address.");
+    }
+  });
+});
+</script>
+</head>
+<body>
 
-    <!-- Option 2: CoreUI PRO for Bootstrap CSS -->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/@coreui/coreui-pro@5.8.0/dist/css/coreui.min.css" rel="stylesheet" integrity="sha384-hbx3WW3VEnpFGfGaaDgwb9GZ5DxxQebbCzE/MHHkkH7RbRhEoI3aXxDAFxNnTGnt" crossorigin="anonymous"> -->
+<input type="email" id="email" placeholder="Enter email">
+<span id="email-feedback" style="color: red;"></span>
 
-    <title>Hello, world!</title>
-  </head>
-  <body>
-    <h1>Hello, world!</h1>
-
-    <!-- Optional JavaScript; choose one of the two! -->
-    <select data-mdb-select-init multiple>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-        <option value="4">Four</option>
-        <option value="5">Five</option>
-        <option value="6">Six</option>
-        <option value="7">Seven</option>
-        <option value="8">Eight</option>
-      </select>
-      <script
-  type="text/javascript"
-  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/8.1.0/mdb.umd.min.js"
-></script>
-    <!-- Option 1: CoreUI for Bootstrap Bundle with Popper -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@coreui/coreui@5.2.0/dist/js/coreui.bundle.min.js" integrity="sha384-JdRP5GRWP6APhoVS1OM/pOKMWe7q9q8hpl+J2nhCfVJKoS+yzGtELC5REIYKrymn" crossorigin="anonymous"></script> -->
-
-    <!-- Option 2: CoreUI PRO for Bootstrap Bundle with Popper -->
-    
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@coreui/coreui-pro@5.8.0/dist/js/coreui.bundle.min.js" integrity="sha384-kbsF0QHqVM4ugZc6hE5KlVFNnLiyODrPi2oJJyMnWzVDQ32GCHfbBNkgjg3KXwDN" crossorigin="anonymous"></script> -->
-   
-
-    <!-- Option 3: Separate Popper and CoreUI/CoreUI PRO  for Bootstrap JS -->
-    
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@coreui/coreui@5.2.0/dist/js/coreui.min.js" integrity="sha384-c4nHOtHRPhkHqJsqK5SH1UkyoL2HUUhzGfzGkchJjwIrAlaYVBv+yeU8EYYxW6h5" crossorigin="anonymous"></script> -->
-    <!-- or
-    <script src="https://cdn.jsdelivr.net/npm/@coreui/coreui-pro@5.8.0/dist/js/coreui.min.js" integrity="sha384-hI01mLXMmn+tqmalVTYUZHqJL9aVISBf2FLvisE3WySzXqwHOXyh1zYg7hAGwohp" crossorigin="anonymous"></script> -->
-   
-  </body>
+</body>
 </html>

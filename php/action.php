@@ -25,9 +25,21 @@ class action extends Connection
         $row = $res->fetch_array();
         return $row[0];
     }
-    public function InsertData($tbl,$value){
+    public function InsertData($tbl, $value)
+    {
         // '', '" . $post_title . "','" . $post_des . "','" . $post_img . "','" . $post_date . "','".$post_status."'
         $sql = "INSERT INTO $tbl VALUES($value)";
         $this->conn->query($sql);
+    }
+    public function selectEmail($tbl)
+    {
+        $sql = "SELECT email FROM $tbl";
+        $res = $this->conn->query($sql);
+        if ($res->num_rows > 0) {
+            while ($row = $res->fetch_array()) {
+                $data[] = $row;
+            }
+            return $data;
+        }
     }
 }

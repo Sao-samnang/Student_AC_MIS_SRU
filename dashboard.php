@@ -15,7 +15,6 @@
         @import url('https://fonts.googleapis.com/css2?family=Anton&family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&family=Mona+Sans:ital,wght@0,200..900;1,200..900&family=Moul&display=swap');
     </style>
 </head>
-
 <body>
     <div class="container-fluid m-0 p-0">
         <div class="container menu-side">

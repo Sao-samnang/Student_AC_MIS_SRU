@@ -42,9 +42,9 @@
                     <div class=" div-name mt-1">
                         <input type="id" class="form-control mb-3" id="txtid" name="id" value="<?php echo $id; ?>" aria-describedby="nameHelp" style="display: none;">
                         <input type="lname" class="form-control mb-3" id="txtlastname" name="lname" aria-describedby="nameHelp"
-                            placeholder="ត្រកូល">
+                            placeholder="ត្រកូល" required autofocus>
                         <input type="name" class="form-control mt" id="txtfirstname" name="fname" aria-describedby="nameHelp"
-                            placeholder="គោត្ដនាម/នាម">
+                            placeholder="គោត្ដនាម/នាម" required autofocus>
                     </div>
                     <div class=" chckmale">
                         <p>ភេទ៖</p>
@@ -57,32 +57,26 @@
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gender" value="male" id="txtfemale">
+                                <input class="form-check-input" type="radio" name="gender" value="male" id="txtmale">
                                 <label class="form-check-label" for="txtmale">
                                     ភេទប្រុស
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="txtother">
-                                <label class="form-check-label" for="txtmale">
-                                    មិនកំណត់
                                 </label>
                             </div>
                         </div>
                     </div>
                     <div class="datetime-picker mb-3">
-                            <label for="" class="form-label">ថ្ងៃខែឆ្នាំកំណើត៖</label>
-                            <input type="date" name="post-datetime" value="" name="birthdate" id="txtbirthdate">
+                            <label for="date" class="form-label">ថ្ងៃខែឆ្នាំកំណើត៖</label>
+                            <input class="date" type="date" name="post-datetime" value="" name="birthdate" id="txtbirthdate">
                         </div>
                     <div class="mb-3">
-                        <input type="text" class="form-control" id="txtemail" name="email" placeholder="អ៊ីមែល">
+                        <input type="text" class="form-control" id="txtemail" name="email" placeholder="អ៊ីមែល" required autofocus>
                     </div>
                     <div class="mb-3">
                         <label for="formFile" class="form-label mb-1">ជ្រើសរើសរូបថតសម្រាប់ប្រូហ្វាល់</label>
                         <input class="form-control" type="file" name="pfimg" id="formFileimg">
                     </div>
                     <div class="mb-3 permissions">
-                        <select class="form-select" id="teacherPermission" name="permission" required>
+                        <select class="form-select" id="teacherPermission" name="permission" required autofocus>
                             <option selected disabled value="">សូមជ្រើសរើសតួនាទីក្នុងស្ថាប័ន.....</option>
                             <option value="teacher">គ្រូបង្រៀន/សាស្រ្តាចារ្យ</option>
                             <option value="president">ប្រធានមហាវិទ្យាល័យ</option>
@@ -110,9 +104,9 @@
                     </div>
                     <div class=" div-namePass mt-1 mb-2">
                         <input type="text" class="form-control mb-3" id="txtpass" name="pass" aria-describedby="passwordHelp"
-                            placeholder="ពាក្យសម្ងាត់">
+                            placeholder="ពាក្យសម្ងាត់" required autofocus>
                         <input type="text" class="form-control mt" id="txtconpass" name="conpass" aria-describedby="passwordHelp"
-                            placeholder="បញ្ជាក់ពាក្យសម្ងាត់">
+                            placeholder="បញ្ជាក់ពាក្យសម្ងាត់" required autofocus>
                     </div>
                 </div>
             </form>

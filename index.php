@@ -62,7 +62,7 @@
           </div>
         </div>
         <button type="button" id="btnloginForm" class="btn btnLogin btn-primary">ចូលប្រើប្រាស់</button>
-        <p class="p2">បើសិនជាអ្នកមិនមានគណនីសូម <a href="signup.html" target="_parent">ចុះឈ្មោះថ្មី</a></p>
+        <p class="p2">បើសិនជាអ្នកមិនមានគណនីសូម <a href="signup.php" target="_parent">ចុះឈ្មោះថ្មី</a></p>
       </form>
     </div>
   </div>

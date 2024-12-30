@@ -1,3 +1,15 @@
+<?php
+    include("php/action.php");
+    $db=new action();
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "db_sru_student";
+    
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    $id=$db->lastId();
+?>
 <!doctype html>
 <html lang="en">
 
@@ -24,27 +36,28 @@
         <div class="container m-0 p-0" data-aos="zoom-out" data-aos-duration="2000">
             <div class="name-pg">ប្រព័ន្ធគ្រប់គ្រងព័ត៌មាននិស្សិត</div>
             <p class="p1">សូមបំពេញទម្រង់ចុះឈ្មោះចូលប្រើប្រាស់ថ្មី</p>
-            <form class="form-signup">
+            <form class="form-signup frm" method="post">
                 <!-- <label for="lname">បញ្ចូលឈ្មោះរបស់អ្នក</label> -->
                 <div class="signInfo">
                     <div class=" div-name mt-1">
-                        <input type="lname" class="form-control mb-3" id="txtlastname" aria-describedby="nameHelp"
+                        <input type="id" class="form-control mb-3" id="txtid" name="id" value="<?php echo $id; ?>" aria-describedby="nameHelp" style="display: none;">
+                        <input type="lname" class="form-control mb-3" id="txtlastname" name="lname" aria-describedby="nameHelp"
                             placeholder="ត្រកូល">
-                        <input type="name" class="form-control mt" id="txtfirstname" aria-describedby="nameHelp"
+                        <input type="name" class="form-control mt" id="txtfirstname" name="fname" aria-describedby="nameHelp"
                             placeholder="គោត្ដនាម/នាម">
                     </div>
                     <div class=" chckmale">
                         <p>ភេទ៖</p>
                         <div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="txtfemale"
+                                <input class="form-check-input" type="radio" name="gender" value="female" id="txtfemale"
                                     checked>
                                 <label class="form-check-label" for="txtfemale">
                                     ភេទស្រី
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="txtfemale">
+                                <input class="form-check-input" type="radio" name="gender" value="male" id="txtfemale">
                                 <label class="form-check-label" for="txtmale">
                                     ភេទប្រុស
                                 </label>
@@ -59,21 +72,21 @@
                     </div>
                     <div class="datetime-picker mb-3">
                             <label for="" class="form-label">ថ្ងៃខែឆ្នាំកំណើត៖</label>
-                            <input type="date" name="post-datetime" value="" id="txtbirthdate">
+                            <input type="date" name="post-datetime" value="" name="birthdate" id="txtbirthdate">
                         </div>
                     <div class="mb-3">
-                        <input type="text" class="form-control" id="txtemail" placeholder="អ៊ីមែល">
+                        <input type="text" class="form-control" id="txtemail" name="email" placeholder="អ៊ីមែល">
                     </div>
                     <div class="mb-3">
                         <label for="formFile" class="form-label mb-1">ជ្រើសរើសរូបថតសម្រាប់ប្រូហ្វាល់</label>
-                        <input class="form-control" type="file" id="formFileimg">
+                        <input class="form-control" type="file" name="pfimg" id="formFileimg">
                     </div>
                     <div class="mb-3 permissions">
-                        <select class="form-select" id="teacherPermission" required>
+                        <select class="form-select" id="teacherPermission" name="permission" required>
                             <option selected disabled value="">សូមជ្រើសរើសតួនាទីក្នុងស្ថាប័ន.....</option>
-                            <option>គ្រូបង្រៀន/សាស្រ្តាចារ្យ</option>
-                            <option>ប្រធានមហាវិទ្យាល័យ</option>
-                            <option>បុគ្គលិក</option>
+                            <option value="teacher">គ្រូបង្រៀន/សាស្រ្តាចារ្យ</option>
+                            <option value="president">ប្រធានមហាវិទ្យាល័យ</option>
+                            <option value="staff">បុគ្គលិក</option>
                         </select>
                     </div>
                     <!-- <div class="mb-3">
@@ -87,22 +100,21 @@
                         </select>
                     </div> -->
                     <div class="mb-3">
-                        <input type="text" class="form-control" id="txtmajor" placeholder="ឯកទេសបង្រៀន">
+                        <input type="text" class="form-control" id="txtmajor" name="major" placeholder="ឯកទេសបង្រៀន">
                     </div>
                     <div class="mb-3">
-                        <input type="text" class="form-control" id="txtphone" placeholder="លេខទូរស័ព្ទ">
+                        <input type="text" class="form-control" id="txtphone" name="phone" placeholder="លេខទូរស័ព្ទ">
                     </div>
                     <div class="mb-3">
-                        <input type="text" class="form-control" id="txtaddress" placeholder="អាស័យដ្ឋាន">
+                        <input type="text" class="form-control" id="txtaddress" name="address" placeholder="អាស័យដ្ឋាន">
                     </div>
                     <div class=" div-namePass mt-1 mb-2">
-                        <input type="text" class="form-control mb-3" id="txtpass" aria-describedby="passwordHelp"
+                        <input type="text" class="form-control mb-3" id="txtpass" name="pass" aria-describedby="passwordHelp"
                             placeholder="ពាក្យសម្ងាត់">
-                        <input type="text" class="form-control mt" id="txtconpass" aria-describedby="passwordHelp"
+                        <input type="text" class="form-control mt" id="txtconpass" name="conpass" aria-describedby="passwordHelp"
                             placeholder="បញ្ជាក់ពាក្យសម្ងាត់">
                     </div>
                 </div>
-
             </form>
             <div class="btn-footerinfo">
                 <button type="button" class="btn btnLogin btn-primary">ចុះឈ្មោះ</button>
@@ -111,9 +123,6 @@
             </div>
         </div>
     </div>
-
-
-
 
     <!-- script block -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

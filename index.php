@@ -1,3 +1,15 @@
+<?php
+  include("php/action.php");
+  $db=new action();
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "db_sru_student";
+  
+  // Create connection
+  $conn = new mysqli($servername, $username, $password, $dbname);
+
+?>
 <!doctype html>
 <html lang="en">
 
@@ -28,16 +40,16 @@
         </div>
         <p>សាកលវិទ្យាល័យស្វាយរៀង</p>
       </div>
-      <form class="form-login">
+      <form class="form-login frm" action="" method="post" enctype="multipart/form-data">
         <div class="name-pg">ប្រព័ន្ធគ្រប់គ្រងព័ត៌មាននិស្សិត</div>
         <p class="p1">ចុះឈ្មោះចូលប្រើប្រាស់</p>
         <div class="mb-4 email">
-          <input type="email" class="form-control" id="txtEmail" aria-describedby="emailHelp"
-            placeholder="បញ្ចូលអ៊ីមែល">
+          <input type="email" class="form-control" id="txtEmail" name="email" aria-describedby="emailHelp"
+            placeholder="បញ្ចូលអ៊ីមែល" autofocus required>
             <span class="fb-email">អ៊ីមែលមិនត្រឹមត្រូវ</span>
         </div>
         <div class="mb-3 pass">
-          <input type="text" class="form-control" id="txtPassword" placeholder="បញ្ចូលពាក្យសម្ងាត់">
+          <input type="text" class="form-control" id="txtPassword" name="password" placeholder="បញ្ចូលពាក្យសម្ងាត់" autofocus>
         <span class="fb-pass">ពាក្យសម្ងាត់មិនត្រឹមត្រូវ</span>
         </div>
         <div class=" form-check">
@@ -49,7 +61,7 @@
             <a href="#">បានភ្លេចពាក្យសម្ងាត់</a>
           </div>
         </div>
-        <button type="button" class="btn btnLogin btn-primary">ចូលប្រើប្រាស់</button>
+        <button type="button" id="btnloginForm" class="btn btnLogin btn-primary">ចូលប្រើប្រាស់</button>
         <p class="p2">បើសិនជាអ្នកមិនមានគណនីសូម <a href="signup.html" target="_parent">ចុះឈ្មោះថ្មី</a></p>
       </form>
     </div>
@@ -57,6 +69,7 @@
 
   <!-- script block -->
   <!-- jQuery -->
+   <script src="js/jquery.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

@@ -1,14 +1,5 @@
 <?php
-    include("php/action.php");
-    $db=new action();
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "db_sru_student";
-    
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    $id=$db->lastId();
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -18,12 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Welcome to Svay Rieng University Signup Application Form</title>
     <!-- animation -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css?<?php echo time() ?>" />
     <!--  -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/signup.css">
-    <link rel="icon" href="Image/sru logo.png">
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous?<?php echo time() ?>">
+    <link rel="stylesheet" href="css/signup.css?<?php echo time() ?>">
+    <link rel="icon" href="Image/sru logo.png?<?php echo time() ?>">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&family=Mona+Sans:ital,wght@0,200..900;1,200..900&family=Moul&display=swap');
     </style>
@@ -36,11 +27,11 @@
         <div class="container m-0 p-0" data-aos="zoom-out" data-aos-duration="2000">
             <div class="name-pg">ប្រព័ន្ធគ្រប់គ្រងព័ត៌មាននិស្សិត</div>
             <p class="p1">សូមបំពេញទម្រង់ចុះឈ្មោះចូលប្រើប្រាស់ថ្មី</p>
-            <form class="form-signup frm" method="post">
+            <form class="signfrm" action="" method="post" enctype="multipart/form-data">
                 <!-- <label for="lname">បញ្ចូលឈ្មោះរបស់អ្នក</label> -->
                 <div class="signInfo">
                     <div class=" div-name mt-1">
-                        <input type="id" class="form-control mb-3" id="txtid" name="id" value="<?php echo $id; ?>" aria-describedby="nameHelp" style="display: none;">
+                        <input type="id" class="form-control mb-3" id="txtid" name="id" aria-describedby="nameHelp" style="display: none;">
                         <input type="lname" class="form-control mb-3" id="txtlastname" name="lname" aria-describedby="nameHelp"
                             placeholder="ត្រកូល" required autofocus>
                         <input type="name" class="form-control mt" id="txtfirstname" name="fname" aria-describedby="nameHelp"
@@ -65,9 +56,9 @@
                         </div>
                     </div>
                     <div class="datetime-picker mb-3">
-                            <label for="date" class="form-label">ថ្ងៃខែឆ្នាំកំណើត៖</label>
-                            <input class="date" type="date" name="post-datetime" value="" name="birthdate" id="txtbirthdate">
-                        </div>
+                        <label for="date" class="form-label">ថ្ងៃខែឆ្នាំកំណើត៖</label>
+                        <input class="date" type="date" value="" name="birthdate" id="txtbirthdate">
+                    </div>
                     <div class="mb-3">
                         <input type="text" class="form-control" id="txtemail" name="email" placeholder="អ៊ីមែល" required autofocus>
                     </div>
@@ -109,27 +100,27 @@
                             placeholder="បញ្ជាក់ពាក្យសម្ងាត់" required autofocus>
                     </div>
                 </div>
+                <div class="btn-footerinfo">
+                    <button type="button" id="btnsignup" class="btn btnsignup btn-primary">ចុះឈ្មោះ</button>
+                    <p class="p2">បើសិនជាអ្នកមានគណនីរួចរាល់ហើយសូម <a href="index.php"
+                            target="_parent">ចុះឈ្មោះចូលប្រើប្រាស់</a></p>
+                </div>
             </form>
-            <div class="btn-footerinfo">
-                <button type="button" class="btn btnLogin btn-primary">ចុះឈ្មោះ</button>
-                <p class="p2">បើសិនជាអ្នកមានគណនីរួចរាល់ហើយសូម <a href="index.html"
-                        target="_parent">ចុះឈ្មោះចូលប្រើប្រាស់</a></p>
-            </div>
         </div>
     </div>
 
     <!-- script block -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-        
+        crossorigin="anonymous?<?php echo time() ?>"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous?<?php echo time() ?>"></script>
+
     <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.7.1.js"
+    <script src="https://code.jquery.com/jquery-3.7.1.js?<?php echo time() ?>"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <script src="js/signup.js"></script>
+    <script src="js/signup.js?<?php echo time() ?>"></script>
     <!-- animation -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js?<?php echo time() ?>"></script>
     <script>
         AOS.init();
     </script>

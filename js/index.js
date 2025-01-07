@@ -31,6 +31,7 @@ $(document).ready(function () {
       var frm = eThis.closest("form.frm");
       //console.log(frm)
       var frm_data = new FormData(frm[0]);
+      // console.log(frm_data);
       var email = $("#txtEmail").val();
       var password = $("#txtPassword").val();
       // Prevent default form submission
@@ -53,7 +54,7 @@ $(document).ready(function () {
             success: function (data) {
               if(data=="success"){
                 alert("Login Success..!");
-                window.open("dashboard.html", "_parent"); // Replace with your URL
+                window.open("dashboard.php", "_parent"); // Replace with your URL
                 $("form #txtEmail").val("");
                 $("#txtPassword").val("");
               }

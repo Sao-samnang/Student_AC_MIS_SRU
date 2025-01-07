@@ -13,6 +13,7 @@ $(document).ready(function () {
   const email = $("form #txtemail").val();
   const password = $("form #txtpass").val();
   const confirmPassword = $("form #txtconpass").val();
+  cleartxt();
   //
   function cleartxt() {
     $("form #txtlastname").val("");
@@ -22,51 +23,49 @@ $(document).ready(function () {
     $("form #txtpass").val("");
     $("form #txtconpass").val("");
   }
-  $(".container .btnLogin").on("click", function () {
-    // alert("assss");
-    var eThis = $(".container form");
-    var frm = eThis.closest("form.frm");
-    //console.log(frm)
-    var frm_data = new FormData(frm[0]);
-    if (
-      $("#txtlastname").val() != "" &&
-      $("#txtfirstname").val() != "" &&
-      $("#txtemail").val() != "" &&
-      $("#teacherPermission").val() != "" &&
-      mutchPass() == true
-    ) {
-      $.ajax({
-        url: "php/signup.php",
-        type: "POST",
-        data: frm_data,
-        contentType: false,
-        cache: false,
-        processData: false,
-        dataType: "json",
-        beforeSend: function () {
-          //code here
-        },
-        success: function (data) {
-          alert("login failure....!");
-          // if (data == "success") {
-            
-          //   cleartxt();
-          // }
-          // if (data == "failure") {
-          //   alert("Email already registered..!");
-          //   $("txtemail").val("");
-          // }
-        },
-        error: function () {
-          alert("register success..!");
-            window.open("index.php", "_parent");
-          cleartxt();
-        }
-      });
-    } else {
-      alert("please input field..!");
-    }
-  });
+  $(document).ready(function(){
+    $("form #btnsignup").on("click", function () {
+      // alert("assss");
+      var eThis = $(this);
+      var frm = eThis.closest("form.signfrm");
+      // alert(frm)
+      var frm_data = new FormData(frm[0]);
+      
+      if (
+        $("#txtlastname").val() != "" &&
+        $("#txtfirstname").val() != "" &&
+        $("#txtemail").val() != "" &&
+        $("#teacherPermission").val() != ""
+        // mutchPass() == true
+      ) {
+        $.ajax({
+          url: "php/signup.php",
+          type: "POST",
+          data: frm_data,
+          contentType: false,
+          cache: false,
+          processData: false,
+          dataType: "json",
+          beforeSend: function () {
+            //code here
+          },
+          success: function (data) {
+            if(data=="success"){
+              alert("Register Success..!");
+            }
+            if(data=="email"){
+              alert("Email already exsist...!");
+            }
+          },
+          error: function(){
+            alert ("Error")
+          }
+        });
+      } else {
+        alert("please input field..!");
+      }
+    });
+  })
   //   check email
   $("form #txtemail").on("input", function () {
     var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

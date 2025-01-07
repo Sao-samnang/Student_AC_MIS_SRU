@@ -4,7 +4,7 @@ include("connection.php");
 class action extends Connection
 {
     private $conn;
-    public function Connections()
+    public function Connect()
     {
         $this->conn = new mysqli(
             $this->servername,
@@ -16,14 +16,15 @@ class action extends Connection
     }
     public function __construct()
     {
-        $this->Connections();
+        $this->Connect();
     }
-    public function lastId()
+    public function lastId($tbl)
     {
-        $sql = "SELECT userId FROM `tbl_useradmin` ORDER BY userId DESC LIMIT 1";
+        $sql = "SELECT userId FROM $tbl ORDER BY userId DESC LIMIT 1";
         $res = $this->conn->query($sql);
         $row = $res->fetch_array();
-        return $row[0];
+        if($row==null) return null;
+        else return $row['userId'];
     }
     public function InsertData($tbl, $value)
     {

@@ -11,8 +11,8 @@
     <!-- animation -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css?<?php echo time() ?>" />
     <!--  -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous?<?php echo time() ?>">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css?<?php echo time() ?>" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="css/signup.css?<?php echo time() ?>">
     <link rel="icon" href="Image/sru logo.png?<?php echo time() ?>">
     <style>
@@ -94,10 +94,16 @@
                         <input type="text" class="form-control" id="txtaddress" name="address" placeholder="អាស័យដ្ឋាន">
                     </div>
                     <div class=" div-namePass mt-1 mb-2">
-                        <input type="text" class="form-control mb-3" id="txtpass" name="pass" aria-describedby="passwordHelp"
-                            placeholder="ពាក្យសម្ងាត់" required autofocus>
-                        <input type="text" class="form-control mt" id="txtconpass" name="conpass" aria-describedby="passwordHelp"
-                            placeholder="បញ្ជាក់ពាក្យសម្ងាត់" required autofocus>
+                        <div>
+                            <input type="text" class="form-control mb-3" id="txtpass" name="pass" aria-describedby="passwordHelp"
+                                placeholder="ពាក្យសម្ងាត់" required autofocus>
+                            <span class="fb-pass">ពាក្យសម្ងាត់ត្រូវតែមាន៦-៨ខ្ទង់ជាលេខ,អក្សរ,និមិត្តសញ្ញា</span>
+                        </div>
+                        <div>
+                            <input type="text" class="form-control mt" id="txtconpass" name="conpass" aria-describedby="passwordHelp"
+                                placeholder="បញ្ជាក់ពាក្យសម្ងាត់" required autofocus>
+                            <span class="fb-conpass">ពាក្យសម្ងាត់ត្រូវតែមាន៦-៨ខ្ទង់ជាលេខ,អក្សរ,និមិត្តសញ្ញា</span>
+                        </div>
                     </div>
                 </div>
                 <div class="btn-footerinfo">
@@ -110,10 +116,10 @@
     </div>
 
     <!-- script block -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js?<?php echo time() ?>"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous?<?php echo time() ?>"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous?<?php echo time() ?>"></script>
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js?<?php echo time() ?>" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.7.1.js?<?php echo time() ?>"

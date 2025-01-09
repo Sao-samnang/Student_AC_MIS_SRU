@@ -89,6 +89,35 @@
     display: flex;
     gap: 10px;
 }
+.container form .div-namePass div{
+    position: relative;
+    width: 100%;
+}
+form .div-namePass #txtpass{
+    position: relative;
+}
+form .div-namePass #txtconpass{
+    position: relative;
+}
+form .div-namePass .fb-pass{
+    position: absolute;
+    display: none;
+    left: 0;
+    top: 35px;
+    width: 100%;
+    font-size: 0.8rem;
+    color: rgb(241, 114, 114);
+}
+form .div-namePass .fb-conpass{
+    position: absolute;
+    display: none;
+    left: 0;
+    top: 35px;
+    width: 100%;
+    font-size: 0.8rem;
+    color: rgb(241, 114, 114);
+    
+}
 
 .container form input{
     font-family: "Kantumruy Pro", serif;

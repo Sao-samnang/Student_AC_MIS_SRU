@@ -32,7 +32,7 @@ $gender = $_POST['gender'];
 $permission = $_POST['permission'];
 // id
 $txtid = "";
-$getid = $db->lastId($tbl); // Retrieve the last ID from the database
+$getid = $db->lastId($tbl,$permission); // Retrieve the last ID from the database
 $prefix="";
 // Determine the prefix based on permission
 if ($permission == "teacher") {
@@ -56,18 +56,7 @@ if ($getid == null) {
     $txtid = $prefix . $newNumber;
 }
 // check email
-$allemail = $db->selectEmail("tbl_useradmin");
-$emailExists = false;
-
-if (!empty($email)) {
-  // Loop through all emails to check if the input matches any
-  foreach ($allemail as $txtemail) {
-    if ($txtemail['email'] == $email) {
-      $emailExists = true;
-      break;
-    }
-  }
-}
+$emailExists =$db->selectEmail($tbl,$email);
 // 
 // $characters = 'adsfc012345678910';
 // $randomText = substr(str_shuffle($characters), 0, 3); // Generate a random string of 10 characters
@@ -75,7 +64,7 @@ if (!empty($email)) {
 
 // 
 $value = "'" . $txtid . "', '" . $fname . "', '" . $lname . "', '" . $gender . "', '" . $dobnewFormat . "', '" . $email . "', '" . $pfimg . "','" . $permission . "','" . $major . "', '" . $phone . "', '" . $add . "', '" . $pass . "'";
-if ($txtid != "" && $lname != "" && $fname != "" && $gender != "" && $email != "" && $phone != "") {
+if ($txtid != "" && $lname != "" && $fname != "" && $gender != "" && $email != "" && $phone != "" && $permission !="") {
   if ($emailExists == false) {
     $db->InsertData($tbl, $value);
     $tempname = $_FILES['pfimg']['name'];;

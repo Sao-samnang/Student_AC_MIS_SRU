@@ -13,6 +13,7 @@ $(document).ready(function () {
   const email = $("form #txtemail").val();
   const password = $("form #txtpass").val();
   const confirmPassword = $("form #txtconpass").val();
+
   cleartxt();
   //
   function cleartxt() {
@@ -22,50 +23,60 @@ $(document).ready(function () {
     $("form #teacherPermission").val("");
     $("form #txtpass").val("");
     $("form #txtconpass").val("");
+    $("form #txtbirthdate").val("");
+    $("form #formFileimg").val("");
+    $("form #txtmajor").val("");
+    $("form #txtphone").val("");
+    $("form #txtaddress").val("");
   }
-  $(document).ready(function(){
+  $(document).ready(function () {
     $("form #btnsignup").on("click", function () {
       // alert("assss");
       var eThis = $(this);
       var frm = eThis.closest("form.signfrm");
       // alert(frm)
       var frm_data = new FormData(frm[0]);
-      
+
       if (
         $("#txtlastname").val() != "" &&
         $("#txtfirstname").val() != "" &&
         $("#txtemail").val() != "" &&
-        $("#teacherPermission").val() != ""
+        $("#teacherPermission").val() != "" &&
+        $("form #txtconpass").val() != ""
         // mutchPass() == true
       ) {
-        $.ajax({
-          url: "php/signup.php",
-          type: "POST",
-          data: frm_data,
-          contentType: false,
-          cache: false,
-          processData: false,
-          dataType: "json",
-          beforeSend: function () {
-            //code here
-          },
-          success: function (data) {
-            if(data=="success"){
-              alert("Register Success..!");
+        if (mutchPass() == true) {
+          $.ajax({
+            url: "php/signup.php",
+            type: "POST",
+            data: frm_data,
+            contentType: false,
+            cache: false,
+            processData: false,
+            dataType: "json",
+            beforeSend: function () {
+              //code here
+            },
+            success: function (data) {
+              if (data == "success") {
+                alert("Register Success..!");
+                cleartxt();
+                window.open("index.php", "_parent");
+              }
+              if (data == "email") {
+                alert("Email already exsist...!");
+              }
+            },
+            error: function () {
+              alert("Error");
             }
-            if(data=="email"){
-              alert("Email already exsist...!");
-            }
-          },
-          error: function(){
-            alert ("Error")
-          }
-        });
+          });
+        }
       } else {
         alert("please input field..!");
       }
     });
-  })
+  });
   //   check email
   $("form #txtemail").on("input", function () {
     var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -80,36 +91,45 @@ $(document).ready(function () {
   });
   // check pass
   $("form #txtpass").on("input", function () {
-    var pass = $(this).val();
-    if ($(this).val().length < 8) {
-      $(this).css("color", "rgb(241, 114, 114)");
-      //   $("form .fb-pass").css("display", "block");
-    } else {
+    var pass = $(this).val().trim();
+    if (isValidPassword(pass) || pass.length == 0) {
       $(this).css("color", "rgb(0, 0, 0)");
+      $("form .fb-pass").css("display", "none");
+    } else {
+      $(this).css("color", "rgb(241, 114, 114)");
+      $("form .fb-pass").css("display", "block");
     }
+    // console.log('Password:', pass, 'Valid:', isValidPassword(pass));
   });
   $("form #txtconpass").on("input", function () {
-    var pass = $(this).val();
-    if ($(this).val().length < 8) {
-      $(this).css("color", "rgb(241, 114, 114)");
-      //   $("form .fb-pass").css("display", "block");
-    } else {
+    var pass = $(this).val().trim();
+    if (isValidPassword(pass) || pass.length == 0) {
       $(this).css("color", "rgb(0, 0, 0)");
+      $("form .fb-conpass").css("display", "none");
+    } else {
+      $(this).css("color", "rgb(241, 114, 114)");
+      $("form .fb-conpass").css("display", "block");
     }
   });
-  function isValidPassword($password) {
+
+  function isValidPassword(password) {
     // Regular expression to check for:
     // - At least one letter [a-zA-Z]
     // - At least one digit [0-9]
     // - At least one special character [!@#$%^&*(),.?":{}|<>]
     // - Minimum 8 characters in total
-    $pattern =
-      '/^(?=.*[a-zA-Z])(?=.*d)(?=.*[!@#$%^&*(),.?":{}|<>])[a-zA-Zd!@#$%^&*(),.?":{}|<>]{8,}$/';
+    var pattern =
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,}$/;
 
-    return preg_match($pattern, $password);
+    return pattern.test(password);
   }
   function mutchPass() {
-    if ($("form #txtconpass").val() == $("form #txtpass").val()) return true;
+    if (
+      $("form #txtconpass").val().length > 5 &&
+      $("form #txtpass").val().length > 5 &&
+      $("form #txtconpass").val() == $("form #txtpass").val()
+    )
+      return true;
     else return false;
   }
 });

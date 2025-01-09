@@ -18,9 +18,9 @@ class action extends Connection
     {
         $this->Connect();
     }
-    public function lastId($tbl)
+    public function lastId($tbl,$field)
     {
-        $sql = "SELECT userId FROM $tbl ORDER BY userId DESC LIMIT 1";
+        $sql = "SELECT userId FROM $tbl where permission='$field' ORDER BY userId DESC LIMIT 1";
         $res = $this->conn->query($sql);
         $row = $res->fetch_array();
         if($row==null) return null;
@@ -32,15 +32,25 @@ class action extends Connection
         $sql = "INSERT INTO $tbl VALUES($value)";
         $this->conn->query($sql);
     }
-    public function selectEmail($tbl)
+    public function selectEmail($tbl,$email)
     {
-        $sql = "SELECT email FROM $tbl";
+        $sql = "SELECT * FROM $tbl where email='$email'";
         $res = $this->conn->query($sql);
-        if ($res->num_rows > 0) {
+        if ($res->num_rows ==1) return true;
+    }
+    public function selectOtp($tbl,$otp)
+    {
+        $sql = "SELECT email FROM $tbl where $otp=$otp";
+        $res = $this->conn->query($sql);
+        if ($res->num_rows ==1) {
             while ($row = $res->fetch_array()) {
-                $data[] = $row;
+                $data[] = $row['email'];
             }
             return $data;
         }
+    }
+    public function updatePass($tbl,$pass,$email){
+        $sql="UPDATE $tbl SET `password`='$pass' WHERE email='$email'";
+        $this->conn->query($sql);
     }
 }

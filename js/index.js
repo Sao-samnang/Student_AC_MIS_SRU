@@ -61,7 +61,7 @@ $(document).ready(function () {
              
             },
             error: function () {
-              alert("login failure....!");
+              alert("Invalid uername or password.");
             }
           });
         }
@@ -85,7 +85,7 @@ $(document).ready(function () {
     });
     $("form #txtPassword").on("input", function () {
       var pass = $(this).val();
-      if ($(this).val().length < 8) {
+      if ($(this).val().length <6) {
         $(this).css("color", "rgb(241, 114, 114)");
         //   $("form .fb-pass").css("display", "block");
       } else {

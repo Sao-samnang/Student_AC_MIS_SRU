@@ -58,7 +58,7 @@
             <label class="form-check-label" for="ShowPw">បង្ហាញពាក្យសម្ងាត់</label>
           </div>
           <div class="fg-pass">
-            <a href="#">បានភ្លេចពាក្យសម្ងាត់</a>
+            <a href="forgotpass.php" target="_parent">បានភ្លេចពាក្យសម្ងាត់</a>
           </div>
         </div>
         <button type="button" id="btnloginForm" class="btn btnLogin btn-primary">ចូលប្រើប្រាស់</button>

@@ -30,12 +30,14 @@
             <form class="frmotpveri" action="" method="post" enctype="multipart/form-data">
                 <p class="p1">បញ្ជាក់កូដOTP</p>
                 <p class="p2">សូមបញ្ចូលកូដOTPដែលបានផ្ញើរទៅកាន់ប្រអប់សាររបស់អ្នក</p>
-                <input type="text" class="form-control" name="id" value="1" required style="display: none;">
+                <input type="text" class="form-control" id="txtid" name="id" value="1" required style="display: none;">
+                <!-- <input type="text" name="email" placeholder="Enter your email" style="display: none;"> -->
                 <div class="mb-3 otppass mt-4">
                     <input type="text" class="form-control" id="opt" maxlength="6" name="codeotp" placeholder="" required>
                     <span>បញ្ចូលOTPកូដ</span>
                 </div>
                 <div class="btnbox">
+                    <button type="button" id="btnreotp" class="btn btnreotp btn-primary">ផ្ញើរOTPកូដម្ដងទៀត</button>
                     <button type="button" id="btnotp" class="btn btnotp btn-primary">បញ្ជាក់</button>
                 </div>
             </form>

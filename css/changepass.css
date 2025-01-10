@@ -16,7 +16,7 @@
 }
 .container{
     position: absolute;
-    /* display: flex; */
+    display: block;
     /* top: 50%;
     left: 50%; */
     /* transform: translate(-50%,-50%); */
@@ -28,8 +28,31 @@
     overflow: hidden;
     box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
 }
+.container .imgani{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 90px;
+  border-radius: 100px;
+}
+.container .aniicon{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 90px;
+  height: 90px;
+  border-radius: 50px;
+  background-color: azure;
+  margin-top: 5px;
+}
 /* loading */
-
 .lds-roller,
 .lds-roller div,
 .lds-roller div:after {
@@ -125,56 +148,27 @@
 
 
 /*  */
+.container .txtdis{
+    width: 100%;
+    line-height: 30px;
+}
+.container .txtdis .p1{
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.container .txtdis .p2{
+    width: 100%;
+    text-align: center;
+    font-size: 0.95rem;
+}
 .mainBg-signup{
     z-index: 1;
     width: 100%;
     height: 100vh;
     object-fit: cover;
     opacity: 60%;
-}
-.container .name-pg{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 15px;
-    font-family: "Moul", serif;
-    font-size: 1.1rem;
-    color: #ffffff;
-    background-color: #2E64FE;
-}
-.container .imgani{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-.container .imgani img{
-    width: 90px;
-    height: 90px;
-    object-fit: cover;
-}
-.container form{
-    position: relative;
-    padding: 0px 20px 20px 20px;
-    width: 100%;
-    height: 100%;
-}
-.container form .p1, .p2{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin: 0;
-}
-.container form .p1{
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #2E64FE;
-}
-.container form .p2{
-    font-size: 0.9rem;
 }
 .container form .form-control:focus{
     outline: none !important;
@@ -184,39 +178,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    /* gap: 20px; */
 }
-.container form .btnbox #btnotp, #btnreotp{
-    width: 50%;
+.container form .btnbox .btnnewpass{
+    width: 100%;
     font-size: 0.9rem;
 }
-.container form .otppass{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+.container form .pass{
     position: relative;
 }
-.container form .otppass span{
+.container form .pass span{
     position: absolute;
-    /* top: 7px; */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    top: 7px;
+    left: 13px;
     transition: all 0.3s;
     background: #ffffff;
-    font-size: .9rem;
+    font-size: .95rem;
     color: grey;
     border-radius: 3px;
-    transition: all 0.3s;
 }
-.container form .otppass input{
-  text-align: center;
-  letter-spacing: 30px;
-  font-weight: 500;
-}
-.container form .otppass input:focus ~ span,
-.container form .otppass input:not(:placeholder-shown) ~ span {
+.container form .pass input:focus ~ span,
+.container form .pass input:not(:placeholder-shown) ~ span {
+    top: -17px;
     color: #2E64FE;
-    top: -6px;
 }

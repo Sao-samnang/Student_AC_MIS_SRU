@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("action.php");
 $db = new action();
 include('smtp/PHPMailerAutoload.php');
@@ -11,9 +12,7 @@ $id = $_POST['id'];
 $email = $_POST['email'];
 $emailExists = $db->selectEmail($tbl, $email);
 // 
-
-$otp = rand(000000, 999999);
-$body='<!DOCTYPE html>
+$body = '<!DOCTYPE html>
 <html>
 <head>
 <title>SMIS Info.</title>
@@ -24,7 +23,7 @@ $body='<!DOCTYPE html>
     <div style="border-bottom:1px solid #eee">
     <a href="" style="font-size:1.4em;color: #00466a;text-decoration:none;font-weight:600">SMIS Info.</a>
     </div>
-    <p style="font-size:1.1em">Hi,Grorge,</p>
+    <p style="font-size:1.1em">Hey User.</p>
     <p>Thank you for choosing our program. Use the following OTP to complete the procedures to change your password. OTP is valid for 5 minutes. Do not share thiscode with others, including SMIS Info. employee.</p>
     <div style="display: flex;justify-self: center; width: 100%;">
         <h2 style="text-align: center;background:rgb(240, 241, 242); width: 100% ;padding: 30px 0px 30px 0px;color: #00466a ; letter-spacing: 20px;border-radius: 4px;">' . $otp . '</h2>
@@ -39,51 +38,43 @@ $body='<!DOCTYPE html>
     </div>
     </div>
     </body>
-    </html>
-            ';
-function smtp_mailer($to,$subject, $msg){
-	$mail = new PHPMailer(); 
-	$mail->IsSMTP(); 
-	$mail->SMTPAuth = true; 
-	$mail->SMTPSecure = 'tls'; 
-	$mail->Host = "smtp.gmail.com";
-	$mail->Port = 587; 
-	$mail->IsHTML(true);
-	$mail->CharSet = 'UTF-8';
-	//$mail->SMTPDebug = 2; 
-	$mail->Username = "saosamnang022@gmail.com";
-	$mail->Password = "xodybbbkhrdkfxtw";
-	$mail->SetFrom("saosamnang022@gmail.com","SMIS Info.");
-	$mail->Subject = $subject;
-	$mail->Body =$msg;
-	$mail->AddAddress($to);
-	$mail->SMTPOptions=array('ssl'=>array(
-		'verify_peer'=>false,
-		'verify_peer_name'=>false,
-		'allow_self_signed'=>false
-	));
-	if(!$mail->Send()){
-		echo $mail->ErrorInfo;
-	}else{
-		return 'Sent';
-	}
-}
+    </html>';
 // 
-if ($id == 0) {
-    if ($emailExists == true) {
-        smtp_mailer($email,'OTP Code Verification',$body);
-        $db->InsertData("tbl_otp", "'" . $email . "','" . $otp . "'");
-        echo json_encode("success");
-    } 
-}
-// 
-if ($id == 1) {
-    $txtotp = $_POST['codeotp'];
-    $txtmail = $db->selectOtp($tblotp, $txtotp);
-    if ($txtmail == $email) {
-        echo json_encode("success");
+function smtp_mailer($to, $subject, $msg)
+{
+    $mail = new PHPMailer();
+    $mail->IsSMTP();
+    $mail->SMTPAuth = true;
+    $mail->SMTPSecure = 'tls';
+    $mail->Host = "smtp.gmail.com";
+    $mail->Port = 587;
+    $mail->IsHTML(true);
+    $mail->CharSet = 'UTF-8';
+    //$mail->SMTPDebug = 2; 
+    $mail->Username = "saosamnang022@gmail.com";
+    $mail->Password = "xodybbbkhrdkfxtw";
+    $mail->SetFrom("saosamnang022@gmail.com", "SMIS Info.");
+    $mail->Subject = $subject;
+    $mail->Body = $msg;
+    $mail->AddAddress($to);
+    $mail->SMTPOptions = array('ssl' => array(
+        'verify_peer' => false,
+        'verify_peer_name' => false,
+        'allow_self_signed' => false
+    ));
+    if (!$mail->Send()) {
+        echo $mail->ErrorInfo;
+    } else {
+        return 'Sent';
     }
 }
-// if($id==2){
-
-// }
+// send otp to mail
+if ($id == 0) {
+    if ($emailExists == true) {
+        smtp_mailer($email, 'OTP Code Verification', $body);
+        $db->InsertData("tbl_otp", "'" . $email . "','" . $otp . "'");
+        $_SESSION['email'] = $_POST['email']; // Store the input value in a session
+        echo json_encode(['status' => 'success', 'redirect' => 'optconfirm.php']);
+        exit();
+    }
+}

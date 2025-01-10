@@ -17,7 +17,7 @@ $(document).ready(function () {
         $('.container-fluid').append(load);
         $(".container").css("display","none");
         $.ajax({
-          url: "php/checkemail.php",
+          url: "php/sendOTP.php",
           type: "POST",
           data: frm_data,
           contentType: false,
@@ -28,11 +28,11 @@ $(document).ready(function () {
             //code here
           },
           success: function (data) {
-            if (data == "success") {
+            if (data.status === 'success') {
                 alert("OPT code already send to your email.");
                 // $(".container").css("display","none");
                 $(".lds-roller").remove();
-                window.open("optconfirm.php","_parent");
+                window.location.href = data.redirect;
                 $(".container").css("display","block");
                 $("form #txtemail").val("");
             }

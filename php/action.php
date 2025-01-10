@@ -38,16 +38,18 @@ class action extends Connection
         $res = $this->conn->query($sql);
         if ($res->num_rows ==1) return true;
     }
-    public function selectOtp($tbl,$otp)
+    public function selectOtp($tbl,$otp,$email)
     {
-        $sql = "SELECT email FROM $tbl where $otp=$otp";
+        $sql = "SELECT *FROM $tbl where $otp=$otp and email='$email'";
         $res = $this->conn->query($sql);
-        if ($res->num_rows ==1) {
-            while ($row = $res->fetch_array()) {
-                $data[] = $row['email'];
-            }
-            return $data;
-        }
+        $row = $res->fetch_array();
+        if ($row==null) return false;
+        else return $row['email'];
+    }
+    public function emailOtpdelete($tbl,$email)
+    {
+        $sql = "Delete FROM $tbl where email='$email'";
+        $this->conn->query($sql);
     }
     public function updatePass($tbl,$pass,$email){
         $sql="UPDATE $tbl SET `password`='$pass' WHERE email='$email'";

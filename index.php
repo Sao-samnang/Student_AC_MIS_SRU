@@ -1,15 +1,3 @@
-<?php
-  include("php/action.php");
-  $db=new action();
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "db_sru_student";
-  
-  // Create connection
-  $conn = new mysqli($servername, $username, $password, $dbname);
-
-?>
 <!doctype html>
 <html lang="en">
 
@@ -45,11 +33,11 @@
         <p class="p1">ចុះឈ្មោះចូលប្រើប្រាស់</p>
         <div class="mb-4 email">
           <input type="email" class="form-control" id="txtEmail" name="email" aria-describedby="emailHelp"
-            placeholder="បញ្ចូលអ៊ីមែល" autofocus required>
+            placeholder="បញ្ចូលអ៊ីមែល" autofocus required >
             <span class="fb-email">អ៊ីមែលមិនត្រឹមត្រូវ</span>
         </div>
         <div class="mb-3 pass">
-          <input type="text" class="form-control" id="txtPassword" name="password" placeholder="បញ្ចូលពាក្យសម្ងាត់" autofocus>
+          <input type="text" class="form-control" id="txtPassword" name="password" placeholder="បញ្ចូលពាក្យសម្ងាត់" autofocus >
         <span class="fb-pass">ពាក្យសម្ងាត់មិនត្រឹមត្រូវ</span>
         </div>
         <div class=" form-check">

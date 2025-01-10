@@ -27,21 +27,21 @@ $(document).ready(function () {
           if (data =="success") {
             setTimeout(()=>{
               $(".lds-roller").remove();
-            },2500)
+            },1000)
             setTimeout(()=>{
               alert("OTP code already send to your mail.");
               $(".container").css("display", "block");
-            },2800)
+            },1500)
           }
         },
         error: function () {
           setTimeout(()=>{
             $(".lds-roller").remove();
-          },2500)
+          },1000)
           setTimeout(()=>{
             alert("Can't find your email.");
             $(".container").css("display", "block");
-          },2800)
+          },1500)
         }
       });
     });

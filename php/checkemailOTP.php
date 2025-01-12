@@ -22,7 +22,7 @@ $body = '<!DOCTYPE html>
     <a href="" style="font-size:1.4em;color: #00466a;text-decoration:none;font-weight:600">SMIS Info.</a>
     </div>
     <p style="font-size:1.1em">Hey User.</p>
-    <p>Thank you for choosing our program. Use the following OTP to complete the procedures to change your password. OTP is valid for 5 minutes. Do not share thiscode with others, including SMIS Info. employee.</p>
+    <p>Thank you for choosing our system. Use the following OTP to complete the procedures to change your password. OTP is valid for 5 minutes. Do not share thiscode with others, including SMIS Info. employee.</p>
     <div style="display: flex;justify-self: center; width: 100%;">
         <h2 style="text-align: center;background:rgb(240, 241, 242); width: 100% ;padding: 30px 0px 30px 0px;color: #00466a ; letter-spacing: 20px;border-radius: 4px;">' . $otp . '</h2>
     </div>

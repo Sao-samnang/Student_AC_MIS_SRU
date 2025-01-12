@@ -12,11 +12,11 @@ $(document).ready(function () {
       var eThis = $(this);
       var frm = eThis.closest("form.frmnewpass");
       var pass = $("form #txtconpass").val();
-      var newpass=$("form #txtnewpass").val();
+      var newpass = $("form #txtnewpass").val();
       //console.log(frm)
       //   alert(email)
       var frm_data = new FormData(frm[0]);
-      if (pass != "" && newpass !="" && mutchPass()==true) {
+      if (pass != "" && newpass != "" && mutchPass() == true) {
         //   alert(email)
         var load =
           '<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>';
@@ -35,29 +35,55 @@ $(document).ready(function () {
           },
           success: function (data) {
             if (data === "success") {
+              $(".container-fluid .mss").css("display", "flex");
+              $(".container-fluid .mss .mss1")
+                .empty()
+                .append(
+                  '<lottie-player src="https://lottie.host/b0c5bfda-ee44-4014-905c-83f5d46ff100/dlQebRk9lL.json" background="none" speed="1" style="width: 90px; height: 90px" autoplay direction="1" mode="normal"></lottie-player>'
+                );
+              $(".container-fluid .mss .mss2")
+                .empty()
+                .append("Password already changed.!");
               setTimeout(() => {
                 $(".lds-roller").remove();
-              }, 3000);
-              setTimeout(() => {
-                alert("Successfully.");
-                window.open("index.php","_parent");
+                window.open("index.php", "_parent");
                 $(".container").css("display", "block");
-                $("form #txtemail").val("");
-              }, 3300);
+                $(".container-fluid .mss").css("display", "none");
+                $(".container").css("display", "block");
+              }, 4000);
             }
           },
           error: function () {
+            $(".container-fluid .mss").css("display", "flex");
+            $(".container-fluid .mss .mss1")
+              .empty()
+              .append(
+                '<dotlottie-player src="https://lottie.host/31dd2f33-19b8-4735-9c22-15b3c6294a94/2Ksss79WSP.lottie" background="transparent" speed="1" style="width: 90px; height: 90px" autoplay></dotlottie-player>'
+              );
+            $(".container-fluid .mss .mss2")
+              .empty()
+              .append("Invalid password!");
             setTimeout(() => {
-              $(".container").css("display", "block");
+              $(".container-fluid .mss").css("display", "none");
               $(".lds-roller").remove();
-            }, 2500);
-            setTimeout(() => {
-              alert("Invalid password!");
-            }, 2800);
+              $(".container").css("display", "block");
+            }, 4000);
           }
         });
       } else {
-        alert("Please input your password!");
+        $(".container-fluid .mss").css("display", "flex");
+        $(".container-fluid .mss .mss1")
+          .empty()
+          .append(
+            '<dotlottie-player src="https://lottie.host/31dd2f33-19b8-4735-9c22-15b3c6294a94/2Ksss79WSP.lottie" background="transparent" speed="1" style="width: 90px; height: 90px" autoplay></dotlottie-player>'
+          );
+        $(".container-fluid .mss .mss2")
+          .empty()
+          .append("Please input your new password!");
+        setTimeout(() => {
+          $(".container-fluid .mss").css("display", "none");
+          $(".container").css("display", "block");
+        }, 4000);
       }
     });
   });

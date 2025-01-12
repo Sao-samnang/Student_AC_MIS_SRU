@@ -1,4 +1,6 @@
 $(document).ready(function(){
+    // window.onload = function() {
+    // };
     // menu toggle
     // menuRespone();
     // function menuRespone(){

@@ -12,6 +12,8 @@
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="css/index.css?<?php echo time() ?>">
   <link rel="icon" href="Image/sru logo.png?<?php echo time() ?>">
+  <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs?<?php echo time() ?>" type="module"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@2.0.8/dist/lottie-player.js?<?php echo time() ?>"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&family=Mona+Sans:ital,wght@0,200..900;1,200..900&family=Moul&display=swap');
   </style>
@@ -20,6 +22,15 @@
 
 <body>
   <div class="container-fluid m-0 p-0">
+    <div class="mss">
+      <div class="mss1">
+        <!-- <dotlottie-player src="https://lottie.host/31dd2f33-19b8-4735-9c22-15b3c6294a94/2Ksss79WSP.lottie" background="transparent" speed="1" style="width: 90px; height: 90px" autoplay></dotlottie-player> -->
+        <!-- <lottie-player src="https://lottie.host/b0c5bfda-ee44-4014-905c-83f5d46ff100/dlQebRk9lL.json" background="none" speed="1" style="width: 90px; height: 90px" autoplay direction="1" mode="normal"></lottie-player> -->
+      </div>
+      <div class="mss2">
+      
+      </div>
+    </div>
     <img class="mainBg-login" src="Image/Svay Rieng University 1.jpg" alt="">
     <div class="container m-0 p-0" data-aos="zoom-out" data-aos-duration="2000">
       <div class="logo-mainlog">
@@ -33,12 +44,12 @@
         <p class="p1">ចុះឈ្មោះចូលប្រើប្រាស់</p>
         <div class="mb-4 email">
           <input type="email" class="form-control" id="txtEmail" name="email" aria-describedby="emailHelp"
-            placeholder="បញ្ចូលអ៊ីមែល" autofocus required >
-            <span class="fb-email">អ៊ីមែលមិនត្រឹមត្រូវ</span>
+            placeholder="បញ្ចូលអ៊ីមែល" autofocus required>
+          <span class="fb-email">អ៊ីមែលមិនត្រឹមត្រូវ</span>
         </div>
         <div class="mb-3 pass">
-          <input type="text" class="form-control" id="txtPassword" name="password" placeholder="បញ្ចូលពាក្យសម្ងាត់" autofocus >
-        <span class="fb-pass">ពាក្យសម្ងាត់មិនត្រឹមត្រូវ</span>
+          <input type="text" class="form-control" id="txtPassword" name="password" placeholder="បញ្ចូលពាក្យសម្ងាត់" autofocus>
+          <span class="fb-pass">ពាក្យសម្ងាត់មិនត្រឹមត្រូវ</span>
         </div>
         <div class=" form-check">
           <div class="shpass">
@@ -57,7 +68,7 @@
 
   <!-- script block -->
   <!-- jQuery -->
-   <script src="js/jquery.js?<?php echo time() ?>"></script>
+  <script src="js/jquery.js?<?php echo time() ?>"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

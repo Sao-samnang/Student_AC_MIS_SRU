@@ -36,8 +36,19 @@ $(document).ready(function () {
       var password = $("#txtPassword").val();
       // Prevent default form submission
       //
-      if ($("#txtPassword").val()=="" || $("#txtEmail").val()== "") {
-        alert("please input field..!");
+      if ($("#txtPassword").val() == "" || $("#txtEmail").val() == "") {
+        $(".container-fluid .mss").css("display", "flex");
+        $(".container-fluid .mss .mss1")
+          .empty()
+          .append(
+            '<dotlottie-player src="https://lottie.host/31dd2f33-19b8-4735-9c22-15b3c6294a94/2Ksss79WSP.lottie" background="transparent" speed="1" style="width: 90px; height: 90px" autoplay></dotlottie-player>'
+          );
+        $(".container-fluid .mss .mss2")
+          .empty()
+          .append("Please input field uername or password.");
+        setTimeout(() => {
+          $(".container-fluid .mss").css("display", "none");
+        }, 4000);
       } else {
         if (checkPassEm() == true) {
           $.ajax({
@@ -52,16 +63,37 @@ $(document).ready(function () {
               //code here
             },
             success: function (data) {
-              if(data=="success"){
-                alert("Login Success..!");
-                window.open("dashboard.php", "_parent"); // Replace with your URL
-                $("form #txtEmail").val("");
-                $("#txtPassword").val("");
+              if (data.status == "success") {
+                $(".container-fluid .mss").css("display", "flex");
+                $(".container-fluid .mss .mss1")
+                  .empty()
+                  .append(
+                    '<lottie-player src="https://lottie.host/b0c5bfda-ee44-4014-905c-83f5d46ff100/dlQebRk9lL.json" background="none" speed="1" style="width: 90px; height: 90px" autoplay direction="1" mode="normal"></lottie-player>'
+                  );
+                $(".container-fluid .mss .mss2")
+                  .empty()
+                  .append("Login Success..!");
+                setTimeout(() => {
+                  window.location.href = data.redirect;
+                  $("form #txtEmail").val("");
+                  $("#txtPassword").val("");
+                  $(".container-fluid .mss").css("display", "none");
+                }, 4000);
               }
-             
             },
             error: function () {
-              alert("Invalid uername or password.");
+              $(".container-fluid .mss").css("display", "flex");
+              $(".container-fluid .mss .mss1")
+                .empty()
+                .append(
+                  '<dotlottie-player src="https://lottie.host/31dd2f33-19b8-4735-9c22-15b3c6294a94/2Ksss79WSP.lottie" background="transparent" speed="1" style="width: 90px; height: 90px" autoplay></dotlottie-player>'
+                );
+              $(".container-fluid .mss .mss2")
+                .empty()
+                .append("Invalid email or password!");
+              setTimeout(() => {
+                $(".container-fluid .mss").css("display", "none");
+              }, 4000);
             }
           });
         }
@@ -85,7 +117,7 @@ $(document).ready(function () {
     });
     $("form #txtPassword").on("input", function () {
       var pass = $(this).val();
-      if ($(this).val().length <6) {
+      if ($(this).val().length < 6) {
         $(this).css("color", "rgb(241, 114, 114)");
         //   $("form .fb-pass").css("display", "block");
       } else {

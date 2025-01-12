@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("action.php");
 $db = new action();
 $servername = "localhost";
@@ -28,9 +29,13 @@ $sql = "SELECT * FROM tbl_useradmin WHERE email='$email' AND password='$password
 $result = $conn->query($sql);
 
 if ($result->num_rows == 1) {
+  $row = $result->fetch_assoc();
+  $_SESSION['email'] = $row['email'];
+  $_SESSION['lname']=$row['lname'];
   // setcookie('email', $email, time() + (86400 * 30), "/"); // 30 days
   // setcookie('password', $password, time() + (86400 * 30), "/"); // Store hashed password
-  echo json_encode("success");
+  echo json_encode(['status' => 'success', 'redirect' => 'dashboard.php']);
+  exit();
 } else {
   echo "fail";
 }

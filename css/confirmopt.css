@@ -28,6 +28,36 @@
     overflow: hidden;
     box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
 }
+/*  */
+.container-fluid .mss{
+  display: none;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #ffffff;
+  height: 50px;
+  width: auto;
+  border-radius: 3px;
+  z-index: 999;
+}
+.container-fluid .mss1{
+  position: relative;
+  left: -15px;
+}
+.container-fluid .mss2{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  text-align: start;
+  align-items: center;
+  left: -35px;
+  width: auto;
+  height: 100%;
+}
+/*  */
 /* loading */
 
 .lds-roller,

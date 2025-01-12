@@ -62,6 +62,7 @@
     border-radius: 3px;
     transition: all 0.5s;
     width: 100%;
+    cursor: pointer;
 }
 /* .menu-side nav ul li:hover{
     background-color: #4B088A;
@@ -140,12 +141,140 @@
 /* info side */
 .info-side{
     display: flex;
+    justify-content: center;
+    align-items: start;
     width: 100%;
     height: 100vh;
+    background-color: #e7ebf2;
 }
-.info-side img{
+.topbar-info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     width: 100%;
+    height: auto;
+    background-color: #ffff;
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.25);
+}
+.info-side .topbar-info .searchinfo{
+    display: flex;
+    width: 50%;
+    padding: 10px 30px 10px 30px;
+}
+.info-side .topbar-info .searchinfo .txtsh
+{
+    position: relative;
+    width: 80%;
+    height: auto;
+}
+.info-side .topbar-info .searchinfo .txtsh input{
+    padding: 2px 50px 2px 10px;
+    border-radius: 50px;
+    width: 100%;
+}
+.info-side .topbar-info .searchinfo .txtsh i{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    right: 0;
     height: 100%;
+    padding: 0px 15px 0px 15px;
+    background-color: #2E64FE;
+    border-radius: 0px 50px 50px 0px;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: #ffff;
+}
+.info-side .topbar-info .searchinfo .txtsh i:hover{
+    scale: calc(1.05);
+}
+.info-side .topbar-info .form-control:focus{
+    outline: none !important;
+    box-shadow: none !important;
+}
+.info-side .topbar-info .userinfo{
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    width: 50%;
+    gap: 20px;
+}
+.info-side .topbar-info .userinfo .box-upf{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #2E64FE;
+    font-family: "Kantumruy Pro", "Mona Sans", serif;
+    width: fit-content;
+    gap: 5px;
+    padding: 0px 20px;
+    cursor: pointer;
+}
+.info-side .topbar-info .userinfo .box-upf .upfname{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    padding: 0;
+    gap: 5px;
+}
+.topbar-info .userinfo .box-upf .upfname span{
+    color: gray;
+}
+.topbar-info .userinfo .box-upf .upfname > p{
+    text-align: center;
+    margin: 0;
+    color: #2E64FE;
+}
+.info-side .topbar-info .userinfo .box-upf img{
+    display: flex;
+    width: 30px;
+    height: 30px;
     object-fit: cover;
-    /* opacity: 70%; */
+    border-radius: 70px;
+    background-color: aliceblue;
+    padding: 5px;
+}
+.info-side .topbar-info .userinfo .box-mail, .box-notification{
+    position: relative;
+    cursor: pointer;
+}
+.info-side .topbar-info .userinfo .box-mail i{
+    font-size: 1.2rem;
+    color: #2E64FE;
+    transition: all 0.3s;
+}
+.info-side .topbar-info .userinfo .box-notification i{
+    font-size: 1.2rem;
+    color: #2E64FE;
+    transition: all 0.3s;
+}
+.info-side .topbar-info .userinfo .box-mail span{
+    position: absolute;
+    top: -15px;
+    right: -10px;
+    padding: 2px;
+    color: red;
+    border-radius: 10px;
+    font-size: 0.75rem;
+}
+.info-side .topbar-info .userinfo .box-notification span{
+    position: absolute;
+    top: -15px;
+    right: -10px;
+    padding: 2px;
+    color: red;
+    border-radius: 10px;
+    font-size: 0.75rem;
+}
+.info-side .topbar-info .userinfo .box-notification i:hover{
+    font-size: 1.3rem;
+}
+.info-side .topbar-info .userinfo .box-mail i:hover{
+    font-size: 1.3rem;
 }

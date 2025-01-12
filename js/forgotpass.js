@@ -2,7 +2,7 @@ $(document).ready(function () {
   //   $("form #btnback").on("click", function () {
   //     window.open("index.php", "_parent");
   //   });
-  $(".container").css("display","block");
+  $(".container").css("display", "block");
   $(document).ready(function () {
     $("form #btnotp").on("click", function () {
       var eThis = $(this);
@@ -13,9 +13,10 @@ $(document).ready(function () {
       var frm_data = new FormData(frm[0]);
       if (email != "" && isValidEmail(email) == true) {
         //   alert(email)
-        var load='<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>';
-        $('.container-fluid').append(load);
-        $(".container").css("display","none");
+        var load =
+          '<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>';
+        $(".container-fluid").append(load);
+        $(".container").css("display", "none");
         $.ajax({
           url: "php/sendOTP.php",
           type: "POST",
@@ -28,27 +29,55 @@ $(document).ready(function () {
             //code here
           },
           success: function (data) {
-            if (data.status === 'success') {
-                alert("OPT code already send to your email.");
-                // $(".container").css("display","none");
+            if (data.status === "success") {
+              $(".container-fluid .mss").css("display", "flex");
+              $(".container-fluid .mss .mss1")
+                .empty()
+                .append(
+                  '<lottie-player src="https://lottie.host/b0c5bfda-ee44-4014-905c-83f5d46ff100/dlQebRk9lL.json" background="none" speed="1" style="width: 90px; height: 90px" autoplay direction="1" mode="normal"></lottie-player>'
+                );
+              $(".container-fluid .mss .mss2")
+                .empty()
+                .append("OPT code already send to your email.");
+              setTimeout(() => {
                 $(".lds-roller").remove();
                 window.location.href = data.redirect;
-                $(".container").css("display","block");
+                $(".container").css("display", "block");
+                $(".container-fluid .mss").css("display", "none");
+                $(".container").css("display", "block");
                 $("form #txtemail").val("");
+              }, 4000);
             }
           },
           error: function () {
-            setTimeout(()=>{
-              $(".container").css("display","block");
+            $(".container-fluid .mss").css("display", "flex");
+            $(".container-fluid .mss .mss1")
+              .empty()
+              .append(
+                '<dotlottie-player src="https://lottie.host/31dd2f33-19b8-4735-9c22-15b3c6294a94/2Ksss79WSP.lottie" background="transparent" speed="1" style="width: 90px; height: 90px" autoplay></dotlottie-player>'
+              );
+            $(".container-fluid .mss .mss2").empty().append("Invalid email!");
+            setTimeout(() => {
+              $(".container-fluid .mss").css("display", "none");
               $(".lds-roller").remove();
-           },2500)
-           setTimeout(()=>{
-            alert("Invalid email!");
-           },2800)
+              $(".container").css("display", "block");
+            }, 4000);
           }
         });
       } else {
-        alert("Please input your email!");
+        $(".container-fluid .mss").css("display", "flex");
+        $(".container-fluid .mss .mss1")
+          .empty()
+          .append(
+            '<dotlottie-player src="https://lottie.host/31dd2f33-19b8-4735-9c22-15b3c6294a94/2Ksss79WSP.lottie" background="transparent" speed="1" style="width: 90px; height: 90px" autoplay></dotlottie-player>'
+          );
+        $(".container-fluid .mss .mss2")
+          .empty()
+          .append("Please input your email!");
+        setTimeout(() => {
+          $(".container-fluid .mss").css("display", "none");
+          $(".container").css("display", "block");
+        }, 4000);
       }
     });
   });
